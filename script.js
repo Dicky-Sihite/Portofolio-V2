@@ -104,3 +104,27 @@ window.addEventListener('scroll', () => {
     link.style.color = isActive ? 'var(--text)' : '';
   });
 }, { passive: true });
+
+/* ----------------------------------------------------------------
+   3. SHOW MORE PROJECTS
+---------------------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const showMoreBtn = document.getElementById('show-more-btn');
+  const projectGrid = document.querySelector('.project-grid');
+
+  if (showMoreBtn && projectGrid) {
+    showMoreBtn.addEventListener('click', () => {
+      const isExpanded = projectGrid.classList.contains('expanded');
+      
+      if (isExpanded) {
+        // Collapse: hide projects 7, 8, 9
+        projectGrid.classList.remove('expanded');
+        showMoreBtn.textContent = 'Show More Projects';
+      } else {
+        // Expand: show projects 7, 8, 9
+        projectGrid.classList.add('expanded');
+        showMoreBtn.textContent = 'Show Less';
+      }
+    });
+  }
+});
